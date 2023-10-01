@@ -235,7 +235,7 @@ workflows:
           terraform-version: << pipeline.parameters.terraform-version >>
           before-terraform:
             - set-environment:
-                cluster: nonprod-us-east-2
+                cluster: sandbox-us-east-2
                 source-env: op.nonprod.env
           filters: *on-push-main
 
@@ -244,7 +244,7 @@ workflows:
           context: << pipeline.parameters.context >>
           shell:  op run --env-file op.nonprod.env -- /bin/bash -eo pipefail
           source-env: op.nonprod.env
-          cluster: nonprod-us-east-2
+          cluster: sandbox-us-east-2
           requires:
             - create nonprod-us-east-2 core service irsa roles
           filters: *on-push-main
@@ -254,7 +254,7 @@ workflows:
           context: << pipeline.parameters.context >>
           shell:  op run --env-file op.nonprod.env -- /bin/bash -eo pipefail
           source-env: op.nonprod.env
-          cluster: nonprod-us-east-2
+          cluster: sandbox-us-east-2
           requires:
             - deploy nonprod-us-east-2 core-services
           filters: *on-push-main
@@ -350,7 +350,7 @@ workflows:
           context: << pipeline.parameters.context >>
           shell:  op run --env-file op.nonprod.env -- /bin/bash -eo pipefail
           source-env: op.nonprod.env
-          cluster: nonprod-us-east-2
+          cluster: sandbox-us-east-2
 #      - validate-core-services:
 #          name: validate prod-us-east-1
 #          context: << pipeline.parameters.context >>
