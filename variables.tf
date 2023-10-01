@@ -10,4 +10,3 @@ variable "cluster_name" {}
 variable "cluster_autoscaler_version" {}
 variable "metrics_server_version" {}
 variable "kube_state_metrics_chart_version" {}
-variable "pixie_deploy_key" {}
